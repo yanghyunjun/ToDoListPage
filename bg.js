@@ -4,7 +4,7 @@ const IMG_NUMBER = 5;
 
 function paintImage(imageNumber) {
   const image = new Image();
-  image.src = `/image/${imageNumber + 1}.jpg`;
+  image.src = `images/${imageNumber + 1}.jpg`;
   body.appendChild(image);
 }
 function generationRandom() {
