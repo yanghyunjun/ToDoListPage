@@ -5,9 +5,16 @@ const COORDS = "coords";
 function getWeather(lat, lng) {
   fetch(
     `https://api.openweathermap.org/data/2.5/weather?lat=${lat}&lon=${lng}&appid=${API_KEY}&units=metric`
-  ).then(function(response) {
-    console.log(response.json());
-  });
+  )
+    .then(function(response) {
+      return response.json();
+    })
+    .then(function(json) {
+      const temperature = json.main.temp;
+      const place = json.name;
+      weather.innerText = `온도 ${temperature} @   현재장소${place}`;
+      // weather.innerText = `현재 장소${place}`;
+    });
 }
 
 function saveCoords(GeolocationObj) {
